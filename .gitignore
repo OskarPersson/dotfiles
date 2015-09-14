@@ -1,0 +1,14 @@
+*~
+.DS_STORE
+*.dSYM
+eshell/*
+emacs.d/elpa
+emacs.d/vendor
+emacs.d/backups
+emacs.d/eshell
+
+atom/.apm
+atom/.node-gyp
+atom/compile-cache
+atom/packages
+atom/storage

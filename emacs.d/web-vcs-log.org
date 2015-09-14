@@ -1,0 +1,87 @@
+
+* 2014-07-05
+** Downloading file 22:55:54 GMT
+   file [[file:/Users/oskar/Downloads/autostart.el][/Users/oskar/Downloads/autostart.el]]
+   from http://bazaar.launchpad.net/~nxhtml/nxhtml/main/download/lennart.borgman%40gmail.com-20110313013000-drl16yyp60auegw9/autostart.el-20080724174035-zgon4j679232cch3-2/autostart.el
+   Done.
+
+** Downloading file 22:56:04 GMT
+   file [[file:/Users/oskar/Downloads/autostart22.el][/Users/oskar/Downloads/autostart22.el]]
+   from http://bazaar.launchpad.net/~nxhtml/nxhtml/main/download/lennart.borgman%40gmail.com-20100118135750-uoj5q7chz82hzazn/autostart22.el-20090101213540-jlah6xe0n65g93pw-1/autostart22.el
+   Done.
+
+** Downloading file 22:56:08 GMT
+   file [[file:/Users/oskar/Downloads/emacs22.cmd][/Users/oskar/Downloads/emacs22.cmd]]
+   from http://bazaar.launchpad.net/~nxhtml/nxhtml/main/download/lennart.borgman%40gmail.com-20090101213554-u78qtp1mw0225vzq/emacs22.cmd-20090101213540-jlah6xe0n65g93pw-2/emacs22.cmd
+   Done.
+
+** Downloading file 22:56:14 GMT
+   file [[file:/Users/oskar/Downloads/nxhtml-base.el][/Users/oskar/Downloads/nxhtml-base.el]]
+   from http://bazaar.launchpad.net/~nxhtml/nxhtml/main/download/lennart.borgman%40gmail.com-20101228200718-9wwuyehbvtygvstb/nxhtmlbase.el-20100113172514-fyszxn1ypx4ml96h-1/nxhtml-base.el
+   Done.
+
+** Downloading file 22:56:18 GMT
+   file [[file:/Users/oskar/Downloads/nxhtml-loaddefs.el][/Users/oskar/Downloads/nxhtml-loaddefs.el]]
+   from http://bazaar.launchpad.net/~nxhtml/nxhtml/main/download/lennart.borgman%40gmail.com-20120119133124-76xcv4dw2lfxo65v/nxhtmlloaddefs.el-20080927190633-bvdatx6qc6m3ze5h-1/nxhtml-loaddefs.el
+   Done.
+
+** Downloading file 22:56:22 GMT
+   file [[file:/Users/oskar/Downloads/nxhtml-web-vcs.el][/Users/oskar/Downloads/nxhtml-web-vcs.el]]
+   from http://bazaar.launchpad.net/~nxhtml/nxhtml/main/download/lennart.borgman%40gmail.com-20110504235300-ojqwz9z1bxm5dona/nxhtmlwebvcs.el-20100113172514-fyszxn1ypx4ml96h-2/nxhtml-web-vcs.el
+   Done.
+
+** Downloading file 22:56:25 GMT
+   file [[file:/Users/oskar/Downloads/nxhtmlmaint.el][/Users/oskar/Downloads/nxhtmlmaint.el]]
+   from http://bazaar.launchpad.net/~nxhtml/nxhtml/main/download/lennart.borgman%40gmail.com-20100627022309-6em45v2czlwyjrgk/nxhtmlmaint.el-20090101213540-jlah6xe0n65g93pw-3/nxhtmlmaint.el
+   Done.
+
+** Downloading file 22:56:29 GMT
+   file [[file:/Users/oskar/Downloads/README.txt][/Users/oskar/Downloads/README.txt]]
+   from http://bazaar.launchpad.net/~nxhtml/nxhtml/main/download/lennart.borgman%40gmail.com-20110316010700-b7mttztbuoch7z8l/readme.txt-20091201225055-ijilnjhor5wc5s03-1/README.txt
+   Done.
+
+** Downloading file 22:56:34 GMT
+   file [[file:/Users/oskar/Downloads/web-autoload.el][/Users/oskar/Downloads/web-autoload.el]]
+   from http://bazaar.launchpad.net/~nxhtml/nxhtml/main/download/lennart.borgman%40gmail.com-20101219013302-uc6gbtmhecqw8ve2/webautoload.el-20091227180846-favloh4bvxp3i0mh-3/web-autoload.el
+   Done.
+
+** Downloading file 22:56:37 GMT
+   file [[file:/Users/oskar/Downloads/alts/find-recursive-orig.el][/Users/oskar/Downloads/alts/find-recursive-orig.el]]
+   from http://bazaar.launchpad.net/~nxhtml/nxhtml/main/download/lennart.borgman%40gmail.com-20091026172353-5iexawk5v4mg02wc/findrecursiveorig.el-20081226142220-s175iiqgt2csxpif-2/find-recursive-orig.el
+   Done.
+
+** Downloading file 22:56:39 GMT
+   file [[file:/Users/oskar/Downloads/alts/javascript-mozlab.el][/Users/oskar/Downloads/alts/javascript-mozlab.el]]
+   from http://bazaar.launchpad.net/~nxhtml/nxhtml/main/download/lennart.borgman%40gmail.com-20091026172353-5iexawk5v4mg02wc/javascriptmozlab.el-20081226142220-s175iiqgt2csxpif-3/javascript-mozlab.el
+   Done.
+
+** Downloading file 22:56:41 GMT
+   file [[file:/Users/oskar/Downloads/alts/re-builder.new-el][/Users/oskar/Downloads/alts/re-builder.new-el]]
+   from http://bazaar.launchpad.net/~nxhtml/nxhtml/main/download/lennart.borgman%40gmail.com-20100613034223-5ktxjl0oxct53k4f/rebuilder.newel-20100608183449-k727u25707kl88g5-1/re-builder.new-el
+   Done.
+
+** Downloading file 22:56:44 GMT
+   file [[file:/Users/oskar/Downloads/alts/smarty-mode-vdebout.el][/Users/oskar/Downloads/alts/smarty-mode-vdebout.el]]
+   from http://bazaar.launchpad.net/~nxhtml/nxhtml/main/download/lennart.borgman%40gmail.com-20081226142234-u8fy98cnl7qwi5ik/smartymodevdebout.el-20081226142220-s175iiqgt2csxpif-12/smarty-mode-vdebout.el
+   Done.
+
+** Downloading file 22:56:51 GMT
+   file [[file:/Users/oskar/Downloads/etc/img/pause/pause.jpg][/Users/oskar/Downloads/etc/img/pause/pause.jpg]]
+   from http://bazaar.launchpad.net/~nxhtml/nxhtml/main/download/lennart.borgman%40gmail.com-20090101213554-u78qtp1mw0225vzq/pause.jpg-20090101213540-jlah6xe0n65g93pw-7/pause.jpg
+   Done.
+
+** Downloading file 22:57:03 GMT
+   file [[file:/Users/oskar/Downloads/etc/img/pause/pause2.jpg][/Users/oskar/Downloads/etc/img/pause/pause2.jpg]]
+   from http://bazaar.launchpad.net/~nxhtml/nxhtml/main/download/lennart.borgman%40gmail.com-20090101213554-u78qtp1mw0225vzq/pause2.jpg-20090101213540-jlah6xe0n65g93pw-8/pause2.jpg
+   Done.
+
+** Downloading file 22:57:06 GMT
+   file [[file:/Users/oskar/Downloads/etc/js/bm-base-file.js][/Users/oskar/Downloads/etc/js/bm-base-file.js]]
+   from http://bazaar.launchpad.net/~nxhtml/nxhtml/main/download/lennart.borgman%40gmail.com-20120124212512-nojif84er1el245t/bmbasefile.js-20120110203935-g1hbykvs1znt9la7-3/bm-base-file.js
+   Done.
+
+** Downloading file 22:57:09 GMT
+   file [[file:/Users/oskar/Downloads/etc/js/bm-base.js][/Users/oskar/Downloads/etc/js/bm-base.js]]
+   from http://bazaar.launchpad.net/~nxhtml/nxhtml/main/download/lennart.borgman%40gmail.com-20120119133124-76xcv4dw2lfxo65v/bmbase.js-20120110203935-g1hbykvs1znt9la7-4/bm-base.js
+   Done.
+

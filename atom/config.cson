@@ -1,0 +1,86 @@
+"*":
+  "exception-reporting":
+    userId: "9ebcda95-d5b1-7430-476a-cb8357ef5aaf"
+  welcome:
+    showOnStartup: false
+  core:
+    disabledPackages: [
+      "wrap-guide"
+      "editor-stats"
+    ]
+    ignoredNames: [
+      ".git"
+      ".idea"
+      ".sass-cache"
+      ".DS_Store"
+    ]
+    packagesWithKeymapsDisabled: [
+      "linter"
+    ]
+    themes: [
+      "nucleus-dark-ui"
+      "one-dark-syntax"
+    ]
+  editor:
+    invisibles: {}
+    fontSize: 11
+    tabLength: 4
+  "markdown-preview":
+    useGitHubStyle: true
+  docblockr: {}
+  "merge-conflicts": {}
+  pigments:
+    markerType: "underline"
+  "spell-check": {}
+  term2:
+    shellArguments: "--init-file /Users/oskar/.profile"
+  "linter-phpcs":
+    executablePath: "/Applications/MAMP/bin/php/php5.6.10/bin/phpcs"
+  "grunt-runner": {}
+  "remote-edit": {}
+  "markdown-preview-plus":
+    enableLatexRenderingByDefault: true
+    useGitHubStyle: true
+  "highlight-line":
+    enableUnderline: true
+    enableBackgroundColor: false
+  "color-picker":
+    automaticReplace: true
+    abbreviateValues: true
+    preferredFormat: "HEX"
+  "linter-scss-lint":
+    executablePath: "/usr/bin/scss-lint"
+  "tree-view": {}
+  "git-diff":
+    showIconsInEditorGutter: true
+  iTunes: {}
+  "atom-itunes":
+    itunesRefreshInterval: 5000
+    showEqualizer: false
+    showNotes: true
+  "autocomplete-plus": {}
+  "atom-ctags":
+    cmdArgs: "--exclude=./.git/ --exclude=./node_modules/ --exclude=./bower_components/ --exclude=./.sass-cache/ --exclude=./public/build"
+    buildTimeout: 10000
+    autoBuildTagsWhenActive: true
+  "git-plus":
+    splitPane: "down"
+  linter: {}
+  "atom-autocomplete-php":
+    autoloadPaths: [
+      "vendor/autoload.php"
+    ]
+    binPhp: "/Applications/MAMP/bin/php/php5.6.10/bin/php"
+    classMapFiles: [
+      "vendor/composer/autoload_classmap.php"
+    ]
+  "linter-php": {}
+  "autocomplete-php": {}
+  "php-getters-setters": {}
+  "linter-eslint":
+    globalNodePath: "/usr/local"
+    useGlobalEslint: true
+  "status-bar": {}
+".diff.source":
+  editor:
+    softWrapAtPreferredLineLength: true

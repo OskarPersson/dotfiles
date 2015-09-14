@@ -1,0 +1,10 @@
+'body':
+  'ctrl-x 2': 'pane:split-down'
+  'ctrl-x 3': 'pane:split-right'
+  'ctrl-x up': 'window:focus-pane-above'
+  'ctrl-x down': 'window:focus-pane-below'
+  'ctrl-x right': 'window:focus-pane-on-right'
+  'ctrl-x left': 'window:focus-pane-on-left'
+'atom-text-editor:not(.mini)':
+  'alt-tab': 'linter:next-error'
+  'alt-shift-tab': 'linter:previous-error'
