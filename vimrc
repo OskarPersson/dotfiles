@@ -26,6 +26,7 @@ Plugin 'majutsushi/tagbar'
 Plugin 'scrooloose/syntastic'
 Plugin 'danchoi/vitunes'
 Plugin 'vim-scripts/gitignore.vim'
+Plugin 'LaTeX-Box-Team/LaTeX-Box'
 
 Plugin 'jnurmine/Zenburn'
 Plugin 'chriskempson/base16-vim'
