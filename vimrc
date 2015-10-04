@@ -142,3 +142,6 @@ let g:syntastic_check_on_wq = 1
 
 " Syntastic should use PSR-2 for PHP
 let g:syntastic_php_phpcs_args="--standard=PSR2 -n"
+
+" Disable Syntastic for .tex files
+let g:syntastic_mode_map = { 'passive_filetypes': ['tex'] }
