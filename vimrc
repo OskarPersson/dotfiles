@@ -1,3 +1,6 @@
+" Map leader to ,
+let mapleader = ","
+
 " -------- Vundle -------
 set nocompatible              " be iMproved, required
 filetype off                  " required
