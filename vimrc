@@ -93,6 +93,10 @@ set guioptions-=L
 
 " Make backspace work like most other apps
 set backspace=2
+
+" Compile .tex with C-t
+nnoremap <C-t> :w \| Latexmk <CR>
+
 " Start of line, end of line - Emacs binding
 nnoremap <silent> <C-a> ^
 nnoremap <silent> <C-e> $
