@@ -145,3 +145,6 @@ let g:syntastic_php_phpcs_args="--standard=PSR2 -n"
 
 " Disable Syntastic for .tex files
 let g:syntastic_mode_map = { 'passive_filetypes': ['tex'] }
+
+" Airline glyphs
+let g:airline_powerline_fonts = 1
