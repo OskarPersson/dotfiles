@@ -25,6 +25,7 @@ Plugin 'scrooloose/syntastic'
 Plugin 'danchoi/vitunes'
 Plugin 'vim-scripts/gitignore.vim'
 Plugin 'LaTeX-Box-Team/LaTeX-Box'
+Plugin 'terryma/vim-multiple-cursors'
 
 " Color schemes
 Plugin 'jnurmine/Zenburn'
