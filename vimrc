@@ -28,8 +28,10 @@ Plugin 'danchoi/vitunes'
 Plugin 'vim-scripts/gitignore.vim'
 Plugin 'LaTeX-Box-Team/LaTeX-Box'
 
+" Color schemes
 Plugin 'jnurmine/Zenburn'
 Plugin 'chriskempson/base16-vim'
+Plugin 'morhetz/gruvbox'
 
 
 " All of your Plugins must be added before the following line
@@ -73,7 +75,7 @@ set tabstop=4
 syntax enable
 set background=dark
 let base16colorspace=256
-colorscheme Tomorrow-Night
+colorscheme gruvbox
 
 " Highlight current line
 set cursorline
