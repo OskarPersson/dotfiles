@@ -52,6 +52,9 @@ set hlsearch
 " Case-insensitive saerch
 set ignorecase
 
+" Remove trailing whitespace in some filetypes
+autocmd FileType c,cpp,java,php,tex,vimrc autocmd BufWritePre <buffer> :%s/\s\+$//e
+
 " ------- Indentation ------
 
 " Convert tabs to spaces
