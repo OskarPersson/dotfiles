@@ -26,6 +26,7 @@ Plugin 'danchoi/vitunes'
 Plugin 'vim-scripts/gitignore.vim'
 Plugin 'LaTeX-Box-Team/LaTeX-Box'
 Plugin 'terryma/vim-multiple-cursors'
+Plugin 'evidens/vim-twig'
 
 " Color schemes
 Plugin 'jnurmine/Zenburn'
@@ -147,8 +148,11 @@ let g:syntastic_check_on_wq = 1
 " Syntastic should use PSR-2 for PHP
 let g:syntastic_php_phpcs_args="--standard=PSR2 -n"
 
-" Disable Syntastic for .tex files
-let g:syntastic_mode_map = { 'passive_filetypes': ['tex'] }
+" Disable Syntastic for .tex, .twig files
+let g:syntastic_mode_map = { 'passive_filetypes': ['tex', 'twig'] }
+
+" Allow 'plain text' in <head> elements (for twig files)
+let g:syntastic_html_tidy_ignore_errors = [ "plain text isn't allowed in <head> elements" ]
 
 " Airline glyphs
 let g:airline_powerline_fonts = 1
