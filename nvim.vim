@@ -28,6 +28,11 @@ Plugin 'LaTeX-Box-Team/LaTeX-Box'
 Plugin 'terryma/vim-multiple-cursors'
 Plugin 'evidens/vim-twig'
 Plugin 'tpope/vim-surround'
+Plugin 'gcmt/taboo.vim'
+Plugin 'mustache/vim-mustache-handlebars'
+Plugin 'jwalton512/vim-blade'
+Plugin 'ntpeters/vim-better-whitespace'
+Plugin 'kchmck/vim-coffee-script'
 
 " Color schemes
 Plugin 'jnurmine/Zenburn'
@@ -51,6 +56,9 @@ set number
 
 " Dont wrap lines
 set nowrap
+
+" No swap file
+set noswapfile
 
 " Highlight search matches
 set hlsearch
@@ -152,8 +160,11 @@ let NERDTreeShowHidden=1
 " Display hidden files in CtrlP results
 let g:ctrlp_show_hidden = 1
 
+" Keep changed directory in ctrlp
+let g:ctrlp_working_path_mode = 0
+
 " Have CtrlP ignore some directories
-set wildignore+=*/.git/*,*/.hg/*,*/.svn/*,*/.idea/*,*/.DS_Store,*/vendor,*/bower_components,*/node_modules
+set wildignore+=*/.git/*,*/.hg/*,*/.svn/*,*/.idea/*,*/.DS_Store,*/vendor,*/bower_components,*/node_modules,*/.sass-cache
 
 " Recommended settings for syntastic
 set statusline+=%#warningmsg#
@@ -164,8 +175,10 @@ let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 1
+let g:syntastic_html_tidy_exec = 'tidy5'
 
 " Syntastic should use PSR-2 for PHP
+let g:syntastic_php_checkers=['php', 'phpcs']
 let g:syntastic_php_phpcs_args="--standard=PSR2 -n"
 
 " Disable Syntastic for .tex, .twig files
