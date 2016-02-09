@@ -2,46 +2,51 @@
 let mapleader = ","
 
 " -------- Vundle -------
-set nocompatible              " be iMproved, required
-filetype off                  " required
+" set nocompatible              " be iMproved, required
+" filetype off                  " required
 
 " set the runtime path to include Vundle and initialize
-set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin()
+" set rtp+=~/.vim/bundle/Vundle.vim
+" call vundle#begin()
+
+" ------- PLUG ------
+call plug#begin('~/.config/nvim/plugged')
 
 " let Vundle manage Vundle, required
-Plugin 'VundleVim/Vundle.vim'
+Plug 'VundleVim/Vundle.vim'
 
-Plugin 'altercation/vim-colors-solarized'
-Plugin 'ctrlpvim/ctrlp.vim'
-Plugin 'scrooloose/nerdtree'
-Plugin 'StanAngeloff/php.vim'
-Plugin 'bling/vim-airline'
-Plugin 'matze/vim-move'
-Plugin 'tpope/vim-fugitive'
-Plugin 'airblade/vim-gitgutter'
-Plugin 'majutsushi/tagbar'
-Plugin 'scrooloose/syntastic'
-Plugin 'danchoi/vitunes'
-Plugin 'vim-scripts/gitignore.vim'
-Plugin 'LaTeX-Box-Team/LaTeX-Box'
-Plugin 'terryma/vim-multiple-cursors'
-Plugin 'evidens/vim-twig'
-Plugin 'tpope/vim-surround'
-Plugin 'gcmt/taboo.vim'
-Plugin 'mustache/vim-mustache-handlebars'
-Plugin 'jwalton512/vim-blade'
-Plugin 'ntpeters/vim-better-whitespace'
-Plugin 'kchmck/vim-coffee-script'
+Plug 'altercation/vim-colors-solarized'
+Plug 'ctrlpvim/ctrlp.vim'
+Plug 'scrooloose/nerdtree'
+Plug 'StanAngeloff/php.vim'
+Plug 'bling/vim-airline'
+Plug 'matze/vim-move'
+Plug 'tpope/vim-fugitive'
+Plug 'airblade/vim-gitgutter'
+Plug 'majutsushi/tagbar'
+Plug 'scrooloose/syntastic'
+Plug 'vim-scripts/gitignore.vim'
+Plug 'LaTeX-Box-Team/LaTeX-Box'
+Plug 'terryma/vim-multiple-cursors'
+Plug 'evidens/vim-twig'
+Plug 'tpope/vim-surround'
+Plug 'gcmt/taboo.vim'
+Plug 'mustache/vim-mustache-handlebars'
+Plug 'jwalton512/vim-blade'
+Plug 'ntpeters/vim-better-whitespace'
+Plug 'kchmck/vim-coffee-script'
 
 " Color schemes
-Plugin 'jnurmine/Zenburn'
-Plugin 'chriskempson/base16-vim'
-Plugin 'morhetz/gruvbox'
+Plug 'jnurmine/Zenburn'
+Plug 'chriskempson/base16-vim'
+Plug 'morhetz/gruvbox'
+
+" Add plugins to &runtimepath
+call plug#end()
 
 
 " All of your Plugins must be added before the following line
-call vundle#end()            " required
+" call vundle#end()            " required
 filetype plugin indent on    " required
 filetype plugin on           " required by LaTeX-Box
 
@@ -68,16 +73,6 @@ set ignorecase
 
 " Remove trailing whitespace in some filetypes
 autocmd FileType c,cpp,java,php,tex,vimrc autocmd BufWritePre <buffer> :%s/\s\+$//e
-
-" LaTeX word counter with :WC
-function! WC()
-    let filename = expand("%")
-    let cmd = "detex " . filename . " | wc -w | tr -d [:space:]"
-    let result = system(cmd)
-    echo result . " words"
-endfunction
-
-command WC call WC()
 
 " ------- Indentation ------
 
