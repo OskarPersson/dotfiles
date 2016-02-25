@@ -35,6 +35,8 @@ Plug 'mustache/vim-mustache-handlebars'
 Plug 'jwalton512/vim-blade'
 Plug 'ntpeters/vim-better-whitespace'
 Plug 'kchmck/vim-coffee-script'
+Plug 'cakebaker/scss-syntax.vim'
+Plug 'raichoo/smt-vim'
 
 " Color schemes
 Plug 'jnurmine/Zenburn'
@@ -117,6 +119,9 @@ set guioptions-=L
 
 " ------- Key Bindings ---------
 
+" Save with <leader>w
+nmap <leader>w :w<cr>
+
 " Make backspace work like most other apps
 set backspace=2
 
@@ -184,3 +189,6 @@ let g:syntastic_html_tidy_ignore_errors = [ "plain text isn't allowed in <head> 
 
 " Airline glyphs
 let g:airline_powerline_fonts = 1
+
+" Fix airline bleeding over
+let airline#extensions#default#section_use_groupitems = 0
