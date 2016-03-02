@@ -122,6 +122,21 @@ set guioptions-=L
 " Save with <leader>w
 nmap <leader>w :w<cr>
 
+" Close with <leader>q
+nmap <leader>q :q<cr>
+
+" Save and close with <leader>wq
+nmap <leader>wq :wq<cr>
+
+" Horizontal split with <leader>s
+nmap <leader>s <C-w>s
+
+" Vertical split with <leader>v
+nmap <leader>v <C-w>v
+
+" Remove highlight with <leader>h
+nmap <leader>h :noh<cr>
+
 " Make backspace work like most other apps
 set backspace=2
 
