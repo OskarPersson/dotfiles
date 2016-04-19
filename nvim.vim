@@ -16,7 +16,6 @@ call plug#begin('~/.config/nvim/plugged')
 Plug 'VundleVim/Vundle.vim'
 
 Plug 'altercation/vim-colors-solarized'
-Plug 'ctrlpvim/ctrlp.vim'
 Plug 'scrooloose/nerdtree'
 Plug 'StanAngeloff/php.vim'
 Plug 'bling/vim-airline'
@@ -24,7 +23,6 @@ Plug 'matze/vim-move'
 Plug 'tpope/vim-fugitive'
 Plug 'airblade/vim-gitgutter'
 Plug 'majutsushi/tagbar'
-Plug 'scrooloose/syntastic'
 Plug 'vim-scripts/gitignore.vim'
 Plug 'LaTeX-Box-Team/LaTeX-Box'
 Plug 'terryma/vim-multiple-cursors'
@@ -37,6 +35,13 @@ Plug 'ntpeters/vim-better-whitespace'
 Plug 'kchmck/vim-coffee-script'
 Plug 'cakebaker/scss-syntax.vim'
 Plug 'raichoo/smt-vim'
+Plug 'benekastah/neomake'
+function! DoRemote(arg)
+  UpdateRemotePlugins
+endfunction
+Plug 'Shougo/deoplete.nvim', { 'do': function('DoRemote') }
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --bin' }
+Plug 'junegunn/fzf.vim'
 
 " Color schemes
 Plug 'jnurmine/Zenburn'
@@ -76,6 +81,9 @@ set ignorecase
 " Remove trailing whitespace in some filetypes
 autocmd FileType c,cpp,java,php,tex,vimrc autocmd BufWritePre <buffer> :%s/\s\+$//e
 
+" Fix colors?
+" let $NVIM_TUI_ENABLE_TRUE_COLOR=1
+
 " ------- Indentation ------
 
 " Convert tabs to spaces
@@ -102,6 +110,7 @@ let g:tex_flavor='latex'
 syntax enable
 set background=dark
 let base16colorspace=256
+let g:gruvbox_italic=1
 colorscheme gruvbox
 
 " Highlight current line
@@ -125,9 +134,6 @@ nmap <leader>w :w<cr>
 " Close with <leader>q
 nmap <leader>q :q<cr>
 
-" Save and close with <leader>wq
-nmap <leader>wq :wq<cr>
-
 " Horizontal split with <leader>s
 nmap <leader>s <C-w>s
 
@@ -142,6 +148,9 @@ set backspace=2
 
 " Compile .tex with C-t
 nnoremap <C-t> :w \| Latexmk <CR>
+
+"Run FZF with C-f
+map <C-F> :FZF<CR>
 
 " Start of line, end of line - Emacs binding
 nnoremap <silent> <C-a> ^
@@ -172,35 +181,22 @@ tnoremap <Esc> <C-\><C-n>
 " Display hidden files in NERDTree
 let NERDTreeShowHidden=1
 
-" Display hidden files in CtrlP results
-let g:ctrlp_show_hidden = 1
+" -------------------- NEOMAKE ------------------------
+autocmd! BufWritePost * Neomake
 
-" Keep changed directory in ctrlp
-let g:ctrlp_working_path_mode = 0
+let g:neomake_c_enabled_makers = ['clang']
+let g:neomake_c_clang_maker = {
+    \ 'args': ['-Wall -Wextra -Werror -std=c99 -x c -isystem -lpthread -lrt -isystem'],
+    \ }
 
-" Have CtrlP ignore some directories
-set wildignore+=*/.git/*,*/.hg/*,*/.svn/*,*/.idea/*,*/.DS_Store,*/vendor,*/bower_components,*/node_modules,*/.sass-cache
+let g:neomake_php_enabled_makers = ['php', 'phpcs']
+let g:neomake_php_phpcs_args_standard = 'PSR2'
 
-" Recommended settings for syntastic
-set statusline+=%#warningmsg#
-set statusline+=%{SyntasticStatuslineFlag()}
-set statusline+=%*
+let g:neomake_scss_enabled_makers = ['scsslint']
+" -----------------------------------------------------
 
-let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_auto_loc_list = 1
-let g:syntastic_check_on_open = 1
-let g:syntastic_check_on_wq = 1
-let g:syntastic_html_tidy_exec = 'tidy5'
-
-" Syntastic should use PSR-2 for PHP
-let g:syntastic_php_checkers=['php', 'phpcs']
-let g:syntastic_php_phpcs_args="--standard=PSR2 -n"
-
-" Disable Syntastic for .tex, .twig files
-let g:syntastic_mode_map = { 'passive_filetypes': ['tex', 'twig'] }
-
-" Allow 'plain text' in <head> elements (for twig files)
-let g:syntastic_html_tidy_ignore_errors = [ "plain text isn't allowed in <head> elements" ]
+" Enable deoplete at start up
+let g:deoplete#enable_at_startup = 1
 
 " Airline glyphs
 let g:airline_powerline_fonts = 1
