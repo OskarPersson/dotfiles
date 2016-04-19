@@ -173,6 +173,9 @@ noremap <C-r><right> 10<C-W>>
 " NVim terminal pane navigation
 tnoremap <Esc> <C-\><C-n>
 
+" Open neomake list with C-l
+map <C-L> :lopen<CR>
+
 " ------- Plugin Settings ------
 
 " Open NERDTree on Vim start-up
@@ -193,6 +196,7 @@ let g:neomake_php_enabled_makers = ['php', 'phpcs']
 let g:neomake_php_phpcs_args_standard = 'PSR2'
 
 let g:neomake_scss_enabled_makers = ['scsslint']
+let g:neomake_javascript_enabled_makers = ['eslint']
 " -----------------------------------------------------
 
 " Enable deoplete at start up
