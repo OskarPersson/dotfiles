@@ -29,6 +29,7 @@ Plug 'terryma/vim-multiple-cursors'
 Plug 'evidens/vim-twig'
 Plug 'tpope/vim-surround'
 Plug 'gcmt/taboo.vim'
+Plug 'othree/yajs.vim'
 Plug 'mustache/vim-mustache-handlebars'
 Plug 'jwalton512/vim-blade'
 Plug 'ntpeters/vim-better-whitespace'
@@ -189,7 +190,7 @@ autocmd! BufWritePost * Neomake
 
 let g:neomake_c_enabled_makers = ['clang']
 let g:neomake_c_clang_maker = {
-    \ 'args': ['-Wall -Wextra -Werror -std=c99 -x c -isystem -lpthread -lrt -isystem'],
+    \ 'args': ['-Wall', '-Wextra', '-Werror', '-std=c99', '-x', 'c'],
     \ }
 
 let g:neomake_php_enabled_makers = ['php', 'phpcs']
