@@ -95,3 +95,6 @@ export CLICOLOR=1
 zstyle ':completion:*' list-colors "${(@s.:.)LS_COLORS}"
 
 export FZF_DEFAULT_COMMAND='ag --hidden --ignore .git -f -g ""'
+
+# Needed for celery?
+export PYTHONPATH='.'
