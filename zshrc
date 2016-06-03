@@ -98,3 +98,11 @@ export FZF_DEFAULT_COMMAND='ag --hidden --ignore .git -f -g ""'
 
 # Needed for celery?
 export PYTHONPATH='.'
+
+
+# Set HADOOP_HOME
+export HADOOP_HOME=~/hadoop
+# Set JAVA_HOME
+export JAVA_HOME=/usr/lib/jvm/java-7-oracle
+# Add Hadoop bin and sbin directory to PATH
+export PATH=$PATH:$HADOOP_HOME/bin:$HADOOP_HOME/sbin
