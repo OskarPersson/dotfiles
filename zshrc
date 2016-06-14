@@ -96,10 +96,6 @@ zstyle ':completion:*' list-colors "${(@s.:.)LS_COLORS}"
 
 export FZF_DEFAULT_COMMAND='ag --hidden --ignore "**/*.pyc" --ignore .git -f -g ""'
 
-# Needed for celery?
-export PYTHONPATH='.'
-
-
 # Set HADOOP_HOME
 export HADOOP_HOME=~/hadoop
 # Set JAVA_HOME
