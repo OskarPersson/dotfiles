@@ -72,7 +72,6 @@ $ curl -fLo ~/.config/nvim/autoload/plug.vim --create-dirs \
 
 ## Setting up nvim and installing plugins
 ```
-$ mkdir -p ~/.config/nvim
-$ cp /path/to/dotfiles/nvim.vim ~/.config/init.vim
+$ cp /path/to/dotfiles/nvim.vim ~/.config/nvim/init.vim
 $ nvim -c PlugInstall
 ```
