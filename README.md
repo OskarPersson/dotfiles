@@ -2,7 +2,7 @@
 
 ## ZSH + oh-my-zsh
 
-### Ubuntu
+### Linux
 * Install
 
 ```
@@ -35,7 +35,7 @@ sudo cp /path/to/dotfiles/zshrc ~/.zshrc
 ```
 
 ## ZSH Gruvbox Color Scheme
-### Ubuntu
+### Linux
 * Clone repo
 ```
 git clone https://github.com/metalelf0/gnome-terminal-colors.git
@@ -55,7 +55,7 @@ sudo apt-get install dconf-cli
 ```
 brew install neovim/neovim/neovim
 ```
-### Ubuntu
+### Linux
 ```
 sudo apt-get install software-properties-common
 sudo add-apt-repository ppa:neovim-ppa/unstable
