@@ -1,7 +1,7 @@
 sudo apt-get install software-properties-common
 sudo add-apt-repository ppa:neovim-ppa/unstable
 sudo apt-get update
-sudo apt-get install neovim python-dev python-pip python3-dev python3-pip zsh dconf-cli xclip
+sudo apt-get install neovim python-dev python-pip python3-dev python3-pip zsh dconf-cli xclip silversearcher-ag
 chsh -s $(which zsh)
 
 git clone https://github.com/metalelf0/gnome-terminal-colors.git ~/git/gnome-terminal-colors
