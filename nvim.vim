@@ -28,7 +28,6 @@ Plug 'LaTeX-Box-Team/LaTeX-Box'
 Plug 'terryma/vim-multiple-cursors'
 Plug 'evidens/vim-twig'
 Plug 'tpope/vim-surround'
-Plug 'gcmt/taboo.vim'
 Plug 'othree/yajs.vim'
 Plug 'mustache/vim-mustache-handlebars'
 Plug 'jwalton512/vim-blade'
@@ -147,8 +146,8 @@ nmap <leader>h :noh<cr>
 " Make backspace work like most other apps
 set backspace=2
 
-" Compile .tex with C-t
-nnoremap <C-t> :w \| Latexmk <CR>
+" Compile .tex with C-s
+nnoremap <C-s> :w \| Latexmk <CR>
 
 "Run FZF with C-f
 map <C-F> :FZF<CR>
@@ -170,6 +169,17 @@ noremap <C-r><up>  10<C-W>+
 noremap <C-r><down>  10<C-W>-
 noremap <C-r><left>  10<C-W><
 noremap <C-r><right> 10<C-W>>
+
+" Open and close tabs
+noremap <C-t> :tabnew<CR>
+noremap <C-q> :tabclose<CR>
+
+" Open next/previous tab
+noremap <TAB> :tabn<CR>
+noremap <S-TAB> :tabp<CR>
+
+" Open next/previous buffer
+noremap <C-i> :bnext<CR>
 
 " NVim terminal pane navigation
 tnoremap <Esc> <C-\><C-n>
@@ -208,3 +218,9 @@ let g:airline_powerline_fonts = 1
 
 " Fix airline bleeding over
 let airline#extensions#default#section_use_groupitems = 0
+
+" Enable the list of buffers
+let g:airline#extensions#tabline#enabled = 1
+
+" Show just the filename
+let g:airline#extensions#tabline#fnamemod = ':t'
