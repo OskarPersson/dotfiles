@@ -73,6 +73,12 @@ set nowrap
 " No swap file
 set noswapfile
 
+" Keep a backup file
+set backup
+
+" Backup dir
+set backupdir=~/.config/nvim/backup//
+
 " Highlight search matches
 set hlsearch
 
