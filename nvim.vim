@@ -177,14 +177,6 @@ noremap <C-r><down>  10<C-W>-
 noremap <C-r><left>  10<C-W><
 noremap <C-r><right> 10<C-W>>
 
-" Open and close tabs
-noremap <C-t> :tabnew<CR>
-noremap <C-q> :tabclose<CR>
-
-" Open next/previous tab
-noremap <TAB> :tabn<CR>
-noremap <S-TAB> :tabp<CR>
-
 " Open next/previous buffer
 noremap <C-i> :bnext<CR>
 
