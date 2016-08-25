@@ -195,7 +195,11 @@ map <C-L> :lopen<CR>
 let NERDTreeShowHidden=1
 
 " -------------------- NEOMAKE ------------------------
-autocmd! BufWritePost * Neomake
+" Run on save
+autocmd! BufWritePost *.py Neomake
+
+" Run on open
+au BufReadPost *.py Neomake
 
 let g:neomake_c_enabled_makers = ['clang']
 let g:neomake_c_clang_maker = {
@@ -207,6 +211,7 @@ let g:neomake_php_phpcs_args_standard = 'PSR2'
 
 let g:neomake_scss_enabled_makers = ['scsslint']
 let g:neomake_javascript_enabled_makers = ['eslint']
+let g:neomake_python_enabled_makers = ['flake8']
 " -----------------------------------------------------
 
 " Enable deoplete at start up
