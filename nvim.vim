@@ -37,6 +37,7 @@ Plug 'kchmck/vim-coffee-script'
 Plug 'cakebaker/scss-syntax.vim'
 Plug 'raichoo/smt-vim'
 Plug 'benekastah/neomake'
+Plug 'zchee/deoplete-jedi'
 function! DoRemote(arg)
   UpdateRemotePlugins
 endfunction
@@ -214,8 +215,13 @@ let g:neomake_javascript_enabled_makers = ['eslint']
 let g:neomake_python_enabled_makers = ['flake8']
 " -----------------------------------------------------
 
+" -------------------- DEOPLETE -----------------------
 " Enable deoplete at start up
 let g:deoplete#enable_at_startup = 1
+
+" Show Python docstring in preview
+let deoplete#sources#jedi#show_docstring = 1
+" -----------------------------------------------------
 
 " Airline glyphs
 let g:airline_powerline_fonts = 1
