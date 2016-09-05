@@ -4,6 +4,8 @@ sudo apt-get update
 sudo apt-get install neovim python-dev python-pip python3-dev python3-pip zsh dconf-cli xclip silversearcher-ag
 chsh -s $(which zsh)
 
+sudo pip install --upgrade autopep8 jedi flake8 neovim
+
 git clone https://github.com/metalelf0/gnome-terminal-colors.git ~/git/gnome-terminal-colors
 ~/git/gnome-terminal-colors/install.sh
 
