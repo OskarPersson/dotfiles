@@ -14,6 +14,7 @@ git clone https://github.com/powerline/fonts ~/git/powerline-fonts
 
 curl -fLo ~/.config/nvim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 cp ~/git/dotfiles/nvim.vim ~/.config/nvim/init.vim
+mkdir ~/.config/nvim/backup
 nvim -c PlugInstall
 
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
