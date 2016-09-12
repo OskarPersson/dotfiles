@@ -162,6 +162,11 @@ nnoremap <C-s> :w \| Latexmk <CR>
 "Run FZF with C-f
 map <C-F> :FZF<CR>
 
+"Run tagbar with C-o
+nmap <C-o> :TagbarToggle<CR>
+"Jump to tagbar with C-p
+nmap <C-p> :TagbarOpen -j<CR>
+
 " Start of line, end of line - Emacs binding
 nnoremap <silent> <C-a> ^
 nnoremap <silent> <C-e> $
