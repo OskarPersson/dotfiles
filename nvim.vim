@@ -202,6 +202,9 @@ map <C-L> :lopen<CR>
 " Display hidden files in NERDTree
 let NERDTreeShowHidden=1
 
+" Open tagbar on left side
+let g:tagbar_left=1
+
 " -------------------- NEOMAKE ------------------------
 " Run on save
 autocmd! BufWritePost *.py Neomake
