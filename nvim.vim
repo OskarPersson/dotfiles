@@ -17,6 +17,7 @@ Plug 'VundleVim/Vundle.vim'
 
 Plug 'altercation/vim-colors-solarized'
 Plug 'scrooloose/nerdtree'
+Plug 'Xuyuanp/nerdtree-git-plugin'
 Plug 'StanAngeloff/php.vim'
 Plug 'bling/vim-airline'
 Plug 'matze/vim-move'
@@ -37,6 +38,7 @@ Plug 'tpope/vim-jdaddy'
 Plug 'ntpeters/vim-better-whitespace'
 Plug 'kchmck/vim-coffee-script'
 Plug 'cakebaker/scss-syntax.vim'
+Plug 'posva/vim-vue'
 Plug 'raichoo/smt-vim'
 Plug 'benekastah/neomake'
 Plug 'zchee/deoplete-jedi'
@@ -88,6 +90,9 @@ set hlsearch
 " Case-insensitive saerch
 set ignorecase
 
+" Case-insensitive auto completion
+set wildignorecase
+
 " Remove trailing whitespace in some filetypes
 autocmd FileType c,cpp,java,php,tex,vimrc autocmd BufWritePre <buffer> :%s/\s\+$//e
 
@@ -122,6 +127,8 @@ set background=dark
 let base16colorspace=256
 let g:gruvbox_italic=1
 colorscheme gruvbox
+
+autocmd BufRead,BufNewFile *.py let python_highlight_all=1
 
 " Highlight current line
 set cursorline
@@ -228,6 +235,9 @@ let g:neomake_python_enabled_makers = ['flake8']
 " -------------------- DEOPLETE -----------------------
 " Enable deoplete at start up
 let g:deoplete#enable_at_startup = 1
+
+" Close preview when done
+autocmd CompleteDone * pclose!
 
 " Show Python docstring in preview
 let deoplete#sources#jedi#show_docstring = 1
