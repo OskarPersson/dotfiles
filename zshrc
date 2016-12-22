@@ -53,7 +53,7 @@ plugins=(git)
 
 # User configuration
 
-export PATH="/opt/texbin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/Users/oskar/.composer/vendor/bin/:/opt/X11/bin:/Library/TeX/texbin"
+export PATH="/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/Users/oskar/.composer/vendor/bin/:/opt/X11/bin:/Library/TeX/texbin"
 # export MANPATH="/usr/local/man:$MANPATH"
 
 source $ZSH/oh-my-zsh.sh
@@ -82,23 +82,25 @@ source $ZSH/oh-my-zsh.sh
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
-#
+
 source "$HOME/.config/nvim/plugged/gruvbox/gruvbox_256palette.sh"
 
-
-if [[ "$OSTYPE" == "darwin"* ]]; then
-    export LS_COLORS="d=i1;;40:ln=35;40:so=32;40:pi=33;40:ex=31;40:bd=34;46:cd=34;43:su=0;41:sg=0;46:tw=0;42:ow=0;43:"
-fi
+#export LS_COLORS="d=i1;;40:ln=35;40:so=32;40:pi=33;40:ex=31;40:bd=34;46:cd=34;43:su=0;41:sg=0;46:tw=0;42:ow=0;43:"
 
 # ls with color
 export CLICOLOR=1
 zstyle ':completion:*' list-colors "${(@s.:.)LS_COLORS}"
 
-export FZF_DEFAULT_COMMAND='ag --hidden --ignore "**/*.pyc" --ignore .git -f -g ""'
+export PATH="/usr/local/sbin:$PATH"
 
-# Set HADOOP_HOME
-export HADOOP_HOME=~/hadoop
-# Set JAVA_HOME
-export JAVA_HOME=/usr/lib/jvm/java-7-oracle
-# Add Hadoop bin and sbin directory to PATH
-export PATH=$PATH:$HADOOP_HOME/bin:$HADOOP_HOME/sbin
+export DJANGO_SETTINGS_MODULE="config.settings"
+
+export PYTHONSTARTUP=$HOME/.pystartup
+export FZF_DEFAULT_COMMAND='ag -g ""'
+
+HISTSIZE=999999999
+SAVEHIST=$HISTSIZE
+
+export EDITOR=nvim
+
+source $(brew --prefix autoenv)/activate.sh
