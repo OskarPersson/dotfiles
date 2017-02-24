@@ -15,39 +15,68 @@ call plug#begin('~/.config/nvim/plugged')
 " let Vundle manage Vundle, required
 Plug 'VundleVim/Vundle.vim'
 
-Plug 'altercation/vim-colors-solarized'
+" A tree explorer plugin for vim
 Plug 'scrooloose/nerdtree'
+
+" A plugin of NERDTree showing git status flags
 Plug 'Xuyuanp/nerdtree-git-plugin'
+
+" Up-to-date PHP syntax file (5.3 – 7.1 support)
 Plug 'StanAngeloff/php.vim'
-Plug 'bling/vim-airline'
+
+" Lean & mean status/tabline for vim that's light as air
+Plug 'vim-airline/vim-airline'
+
+" Plugin to move lines and selections up and down
 Plug 'matze/vim-move'
+
+" A git wrapper so awesome, it should be illegal
 Plug 'tpope/vim-fugitive'
+
+" A Vim plugin which shows a git diff in the gutter (sign column) and stages/undoes hunks
 Plug 'airblade/vim-gitgutter'
-Plug 'majutsushi/tagbar'
-Plug 'vim-scripts/gitignore.vim'
+
+" Lightweight Toolbox for LaTeX
 Plug 'LaTeX-Box-Team/LaTeX-Box'
+
+" True Sublime Text style multiple selections for Vim
 Plug 'terryma/vim-multiple-cursors'
-Plug 'evidens/vim-twig'
-Plug 'tpope/vim-surround'
-Plug 'godlygeek/tabular'
+
+
 Plug 'othree/yajs.vim'
-Plug 'mustache/vim-mustache-handlebars'
+
+" Vim plugin for Godown Markdown Previewer
 Plug 'davinche/godown-vim'
-Plug 'jwalton512/vim-blade'
-Plug 'tpope/vim-jdaddy'
+
+
+" Better whitespace highlighting for Vim
 Plug 'ntpeters/vim-better-whitespace'
-Plug 'kchmck/vim-coffee-script'
+
+" Vim syntax file for scss
 Plug 'cakebaker/scss-syntax.vim'
+
+" Syntax highlight for Vue.js components
 Plug 'posva/vim-vue'
-Plug 'raichoo/smt-vim'
+
+" Asynchronous linting and make framework for Neovim/Vim
 Plug 'benekastah/neomake'
+
+
+" ------------- DEOPLETE - Dark powered asynchronous completion framework for neovim ---------------------
+
 Plug 'zchee/deoplete-jedi'
+
 function! DoRemote(arg)
   UpdateRemotePlugins
 endfunction
 Plug 'Shougo/deoplete.nvim', { 'do': function('DoRemote') }
+
+" --------------------------------------------------------------------------------------------------------
+
+" FZF plugin for Vim
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --bin' }
 Plug 'junegunn/fzf.vim'
+
 
 " Color schemes
 Plug 'jnurmine/Zenburn'
