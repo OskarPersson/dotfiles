@@ -29,6 +29,16 @@ Plug 'editorconfig/editorconfig-vim'
 " Multiple cursors
 Plug 'mg979/vim-visual-multi'
 
+" Git
+Plug 'tpope/vim-fugitive'
+
+" Tagbar
+Plug 'majutsushi/tagbar'
+
+" NERDTree
+Plug 'scrooloose/nerdtree'
+Plug 'Xuyuanp/nerdtree-git-plugin'
+
 " Vim plugin for live markdown preview
 function! BuildComposer(info)
   if a:info.status != 'unchanged' || a:info.force
@@ -134,7 +144,7 @@ let g:ale_echo_msg_format = '[%linter%] %s [%severity%]'
 " Linters
 let g:ale_linters = {
 \   'javascript': ['eslint'],
-\   'typescript': ['tslint'],
+\   'typescript': ['tslint', 'tsserver'],
 \   'python': ['flake8', 'pylint'],
 \}
 
@@ -206,6 +216,9 @@ let g:airline#extensions#tabline#tabs_label='tabs'
 let g:airline#extensions#tabline#overflow_marker='…'
 let g:airline_section_z='%3p%% %3l:%-2v'
 
+let g:airline#extensions#tagbar#enabled = 1
+let g:airline#extensions#tagbar#flags = 'f'  " show full tag hierarchy
+
 " let g:airline_mode_map = {
 "             \ '__' : ' - ',
 "             \ 'n'  : ' N ',
@@ -225,7 +238,6 @@ let g:airline#extensions#ale#error_symbol=''
 let g:airline#extensions#ale#warning_symbol=''
 let g:airline#extensions#ale#show_line_numbers=0
 let g:airline#extensions#whitespace#show_message=1
-let g:airline#extensions#hunks#enabled=0
 
 "" GitGutter
 nmap <Leader>ha <Plug>GitGutterStageHunk
@@ -241,8 +253,6 @@ let g:gitgutter_sign_modified_removed='◢'
 
 
 " Airline
-" Airline glyphs
-let g:airline_powerline_fonts = 1
 
 " Fix airline bleeding over
 let airline#extensions#default#section_use_groupitems = 0
