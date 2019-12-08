@@ -6,38 +6,44 @@ call plug#begin('~/.vim/plugged')
 
 " PlugInstall and PlugUpdate will clone fzf in ~/.fzf and run install script
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+Plug 'junegunn/fzf.vim'
 
 " Install gruvbox color scheme:
 Plug 'alfunx/gruvbox'
 
+" tmux style zoom
+Plug 'dhruvasagar/vim-zoom'
+
 " Asynchronous Linting
 Plug 'w0rp/ale'
 
-" Improved JavaScript syntax highlight and indentation
-Plug 'pangloss/vim-javascript'
-"
-" Improved TypeScript syntax highlight and indentation
-Plug 'leafgarland/typescript-vim'
-Plug 'peitalin/vim-jsx-typescript'
-
-" JSX syntax highlight
-Plug 'mxw/vim-jsx'
+" Syntax highlighting and indentation
+Plug 'sheerun/vim-polyglot'
 
 " Editorconfig
 Plug 'editorconfig/editorconfig-vim'
 
-" Multiple cursors
-Plug 'mg979/vim-visual-multi'
-
 " Git
 Plug 'tpope/vim-fugitive'
+Plug 'tpope/vim-rhubarb'
 
 " Tagbar
 Plug 'majutsushi/tagbar'
+"
+" Intellisense (ish)
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
 " NERDTree
 Plug 'scrooloose/nerdtree'
 Plug 'Xuyuanp/nerdtree-git-plugin'
+
+" continuously updated session files
+Plug 'tpope/vim-obsession'
+
+" Add syntax highlight to generic log files
+Plug 'mtdl9/vim-log-highlighting'
+
+tnoremap <Esc> <C-\><C-n>
 
 " Vim plugin for live markdown preview
 function! BuildComposer(info)
@@ -55,10 +61,18 @@ Plug 'euclio/vim-markdown-composer', { 'do': function('BuildComposer') }
 " Misc
 Plug 'airblade/vim-gitgutter'
 
-Plug 'vim-airline/vim-airline'
+Plug 'rbong/vim-crystalline'
 
 " Initialize plugin system
 call plug#end()
+
+" Do not automatically wrap on load
+set nowrap
+set textwidth=0
+set wrapmargin=0
+
+" Do not automatically wrap text when typing
+set formatoptions-=t
 
 " Map leader to ,
 let mapleader = ","
@@ -72,6 +86,8 @@ if $TMUX == ''
     set clipboard+=unnamed
 endif
 
+" Disable swap files
+set noswapfile
 
 " Load plugins and indentations files
 " https://vi.stackexchange.com/a/10125/4722
@@ -96,6 +112,9 @@ set number
 " Smart-case search
 set ignorecase
 set smartcase
+
+" Mouse mode
+set mouse=a
 
 " ------- Indentation ------
 
@@ -122,12 +141,16 @@ nmap <leader>w :w<cr>
 
 " Run FZF with C-f
 map <C-F> :FZF<CR>
+map <C-T> :BLines<CR>
 
-" Set update time of gitgutter to 100ms
-set updatetime=100
+" Run Ripgrep with C-S
+nmap <C-S> :Rg<CR>
+
+" Set update time of gitgutter to 300ms
+set updatetime=300
 
 " Set .tsx and .jsx filetypes as typescript.jsx
-autocmd BufNewFile,BufRead *.tsx,*.jsx set filetype=typescript.jsx
+" autocmd BufNewFile,BufRead *.tsx,*.jsx set filetype=typescript.jsx
 
 """ ALE
 " Wait 500ms after text is changed before linting
@@ -141,103 +164,83 @@ let g:ale_echo_msg_error_str = 'E'
 let g:ale_echo_msg_warning_str = 'W'
 let g:ale_echo_msg_format = '[%linter%] %s [%severity%]'
 
+
+let g:ale_javascript_prettier_use_local_config = 1
+
+" tslint isn't recommended, disable it
+let g:ale_linters_ignore = {'typescript': ['tslint']}
+
 " Linters
 let g:ale_linters = {
 \   'javascript': ['eslint'],
-\   'typescript': ['tslint', 'tsserver'],
+\   'typescript': ['tsserver'],
 \   'python': ['flake8', 'pylint'],
 \}
 
 " Fixers
 let g:ale_fixers = {
 \   '*': ['remove_trailing_lines'],
-\   'javascript': ['eslint'],
-\   'typescript': ['tslint'],
-\   'python': ['autopep8', 'isort', 'yapf'],
+\   'javascript': ['eslint', 'prettier'],
+\   'typescript': ['prettier', 'tslint'],
+\   'python': ['autopep8', 'black'],
 \}
 
-""" Airline
-if !exists('g:airline_symbols')
-    let g:airline_symbols={}
-endif
+function! LinterStatus() abort
+    let l:counts = ale#statusline#Count(bufnr(''))
 
-""" Unicode symbols
-let g:airline_left_alt_sep='»'
-let g:airline_left_sep='▶'
-let g:airline_right_alt_sep='«'
-let g:airline_right_sep='◀'
-let g:airline_symbols.crypt='🔒'
-let g:airline_symbols.linenr='☰'
-let g:airline_symbols.linenr='␊'
-let g:airline_symbols.linenr='␤'
-let g:airline_symbols.linenr='¶'
-let g:airline_symbols.maxlinenr='␤'
-let g:airline_symbols.branch='⎇'
-let g:airline_symbols.paste='ρ'
-let g:airline_symbols.paste='Þ'
-let g:airline_symbols.paste='∥'
-let g:airline_symbols.spell='Ꞩ'
-let g:airline_symbols.notexists='∄'
-let g:airline_symbols.whitespace='Ξ'
+    let l:all_errors = l:counts.error + l:counts.style_error
+    let l:all_non_errors = l:counts.total - l:all_errors
 
-""" Powerline    
-let g:airline_left_sep=''
-let g:airline_left_alt_sep=''
-let g:airline_right_sep=''
-let g:airline_right_alt_sep=''
+    return l:counts.total == 0 ? '' : printf(
+    \   '%dW %dE',
+    \   all_non_errors,
+    \   all_errors
+    \)
+endfunction
 
-" """ Straight ▌ │ ▐ │ or ▌ ▏ ▐ ▕
-" let g:airline_left_sep='▌'
-" let g:airline_left_alt_sep='│'
-" let g:airline_right_sep='▐'
-" let g:airline_right_alt_sep='│'
+" Crystalline
+function! StatusLine(current, width)
+  let l:s = ''
 
-""" Powerline symbols
-let g:airline_symbols.branch=''
-let g:airline_symbols.readonly=''
-let g:airline_symbols.linenr='☰'
-let g:airline_symbols.maxlinenr=''
+  if a:current
+    let l:s .= crystalline#mode() . crystalline#right_mode_sep('')
+  else
+    let l:s .= '%#CrystallineInactive#'
+  endif
+  let l:s .= ' %f%h%w%m%r '
+  if a:current
+    let l:s .= crystalline#right_sep('', 'Fill') . ' %{fugitive#head()}'
+  endif
 
-""" Airline settings
-let g:airline_theme='gruvbox'
-let g:airline#extensions#whitespace#mixed_indent_algo=1
-let g:airline_powerline_fonts=1
-let g:airline_skip_empty_sections=0
-let g:airline#extensions#tabline#enabled=1
-let g:airline#extensions#tabline#buffer_idx_mode=1
-let g:airline#extensions#tabline#tab_nr_type=1
-let g:airline#extensions#tabline#show_tab_nr=0
-let g:airline#extensions#tabline#show_close_button=0
-let g:airline#extensions#tabline#exclude_preview=1
-let g:airline#extensions#tabline#fnamecollapse=1
-let g:airline#extensions#tabline#fnamemod=':~:.'
-let g:airline#extensions#tabline#buffers_label='buffers'
-let g:airline#extensions#tabline#tabs_label='tabs'
-let g:airline#extensions#tabline#overflow_marker='…'
-let g:airline_section_z='%3p%% %3l:%-2v'
+  let l:s .= ' %{LinterStatus()}'
 
-let g:airline#extensions#tagbar#enabled = 1
-let g:airline#extensions#tagbar#flags = 'f'  " show full tag hierarchy
+  let l:s .= '%='
+  if a:current
+    let l:s .= crystalline#left_sep('', 'Fill') . ' %{&paste ?"PASTE ":""}%{&spell?"SPELL ":""}'
+    let l:s .= crystalline#left_mode_sep('')
+  endif
+  if a:width > 80
+    let l:s .= ' %{&ft}[%{&enc}][%{&ffs}] %l/%L %c%V %P '
+  else
+    let l:s .= ' '
+  endif
 
-" let g:airline_mode_map = {
-"             \ '__' : ' - ',
-"             \ 'n'  : ' N ',
-"             \ 'i'  : ' I ',
-"             \ 'R'  : ' R ',
-"             \ 'c'  : ' C ',
-"             \ 'v'  : ' V ',
-"             \ 'V'  : 'V-L',
-"             \ '' : 'V-B',
-"             \ 's'  : ' S ',
-"             \ 'S'  : ' S ',
-"             \ '' : ' S ',
-"             \ }
+  return l:s
+endfunction
 
-""" Airline extensions
-let g:airline#extensions#ale#error_symbol=''
-let g:airline#extensions#ale#warning_symbol=''
-let g:airline#extensions#ale#show_line_numbers=0
-let g:airline#extensions#whitespace#show_message=1
+function! TabLine()
+  let l:vimlabel = has('nvim') ?  ' NVIM ' : ' VIM '
+  return crystalline#bufferline(2, len(l:vimlabel), 1) . '%=%#CrystallineTab# ' . l:vimlabel
+endfunction
+
+let g:crystalline_enable_sep = 1
+let g:crystalline_statusline_fn = 'StatusLine'
+let g:crystalline_tabline_fn = 'TabLine'
+let g:crystalline_theme = 'gruvbox'
+
+set showtabline=2
+set guioptions-=e
+set laststatus=2
 
 "" GitGutter
 nmap <Leader>ha <Plug>GitGutterStageHunk
@@ -251,11 +254,42 @@ let g:gitgutter_sign_removed='◢'
 let g:gitgutter_sign_removed_first_line='◥'
 let g:gitgutter_sign_modified_removed='◢'
 
-
-" Airline
-
-" Fix airline bleeding over
-let airline#extensions#default#section_use_groupitems = 0
-
 " Enable the list of buffers
 let g:airline#extensions#tabline#enabled = 1
+
+" Polyglot
+
+" Disable csv
+let g:polyglot_disabled = ['csv']
+
+" COC
+
+nnoremap <silent> K :call <SID>show_documentation()<CR>
+
+function! s:show_documentation()
+  if (index(['vim','help'], &filetype) >= 0)
+    execute 'h '.expand('<cword>')
+  else
+    call CocAction('doHover')
+  endif
+endfunction
+
+nmap <silent> gd <Plug>(coc-definition)
+
+
+
+" if hidden is not set, TextEdit might fail.
+set hidden
+
+" Some servers have issues with backup files, see #649
+set nobackup
+set nowritebackup
+
+" Smaller updatetime for CursorHold & CursorHoldI
+set updatetime=300
+
+" don't give |ins-completion-menu| messages.
+set shortmess+=c
+
+" always show signcolumns
+set signcolumn=yes
