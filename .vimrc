@@ -29,7 +29,10 @@ Plug 'tpope/vim-rhubarb'
 
 " Tagbar
 Plug 'majutsushi/tagbar'
-"
+
+" Rust
+Plug 'rust-lang/rust.vim'
+
 " Intellisense (ish)
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
@@ -197,6 +200,11 @@ function! LinterStatus() abort
     \   all_errors
     \)
 endfunction
+
+" Rust
+let g:rustfmt_autosave = 1
+let g:rustfmt_emit_files = 1
+let g:rustfmt_fail_silently = 0
 
 " Crystalline
 function! StatusLine(current, width)
