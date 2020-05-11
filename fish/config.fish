@@ -1,6 +1,13 @@
 # remove intro message
 set fish_greeting ""
 
+# bootstrap fisher on new systems
+if not functions -q fisher
+    set -q XDG_CONFIG_HOME; or set XDG_CONFIG_HOME ~/.config
+    curl https://git.io/fisher --create-dirs -sLo $XDG_CONFIG_HOME/fish/functions/fisher.fish
+    fish -c fisher
+end
+
 #####################  PROMPT #####################
 
 set normal (set_color normal)
@@ -82,7 +89,7 @@ end
 ###################################################
 
 # set default editor
-export VISUAL=vim
+export VISUAL=nvim
 export EDITOR="$VISUAL"
 
 # set color scheme (https://github.com/Jomik/fish-gruvbox)
@@ -94,22 +101,16 @@ end
 export LC_ALL=en_US.UTF-8
 export LANG=en_US.UTF-8
 
-# direnv
-eval (direnv hook fish)
-
 # rust
 source $HOME/.cargo/env
 
-# python
-export PYTHONSTARTUP=$HOME/.pythonstartup.py
-
-# bat
-export BAT_THEME="gruvbox (Dark) (Medium)"
-
 # fzf
-export FZF_DEFAULT_COMMAND='rg --files --no-ignore --hidden --follow -g "!{.git,node_modules,*.pyc}" 2> /dev/null'
+export FZF_DEFAULT_COMMAND='rg --files --hidden --follow -g "!{.git,node_modules,*.pyc,.idea}" 2> /dev/null'
 export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 
-# MySQL
-
-export PATH="$PATH:/usr/local/opt/mysql@5.7/bin:/usr/local/sbin"
+# abbreviations
+abbr -a c cargo
+abbr -a e nvim
+abbr -a g git
+abbr -a gc 'git checkout'
+abbr -a gst 'git status'
