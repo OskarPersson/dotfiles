@@ -1,0 +1,58 @@
+history | grep pacman
+sudo pacman -S mesa
+sudo pacman -S mhwd
+pacman
+pacman -Rd nvidia-utils
+sudo pacman -Rd nvidia-utils
+sudo pacman -Rd nvidia
+sudo pacman -Qs nvidia
+sudo pacman -Rns libgl
+sudo pacman -R libgl
+sudo pacman -S libgl
+sudo pacman -R "nvidia-*"
+sudo pacman -R nvidia-*
+sudo pacman -Q | grep nvidia
+sudo pacman -Rqs nvidia
+sudo pacman -Rs nvidia
+sudo pacman -rs nvidia
+sudo pacman -R nvidia
+man pacman
+sudo pacman -S alacritty
+sudo pacman -S sway
+pacman -S sway
+sudo pacman -R tigervnc
+sudo pacman -S tigervnc
+sudo pacman -S dropbox
+sudo pacman -S kPackageKit
+sudo pacman -S python-gtk2
+sudo pacman -S xorg-xrdb
+pacman -S xorg-xrdb
+sudo pacman -S fzf
+pacman -S fzf
+sudo pacman -S fish
+sudo pacman -S python-pip
+pacman -S python-pip
+sudo pacman -S xclip
+sudo pacman -S xorg-xclip
+pacman -S xorg-xclip
+sudo pacman -S neovim
+pacman -S neovim
+sudo pacman -S libnghttp2
+pacman -S libnghttp2
+sudo pacman -S yarn
+pacman -S yarn
+sudo pacman -S ripgrep
+pacman -S ripgrep
+sudo pacman -S xorg-xrandr
+sudo pacman -S xrandr
+pacman -S xrandr
+sudo pacman -S dmenu
+sudo pacman -S i3
+sudo pacman -S i3-dmenu
+sudo pacman -S i3-dmenu-desktop
+sudo pacman -S i3status
+sudo pacman -S docker-compose
+sudo pacman -S docker
+sudo pacman -S snapd
+sudo pacman -S nvidia
+pacman -S nvidia

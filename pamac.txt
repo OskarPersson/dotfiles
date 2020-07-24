@@ -1,0 +1,9 @@
+history | grep pamac
+pamac install spotifyd
+pamac install spotify-tui
+pamac install spotify
+pamac install realvnc-vnc-viewer
+sudo pamac install realvnc-vnc-viewer
+pamac install dropbox
+sudo pamac install dropbox
+sudo pamac dropbox
