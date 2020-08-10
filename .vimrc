@@ -46,6 +46,8 @@ Plug 'tpope/vim-obsession'
 " Add syntax highlight to generic log files
 Plug 'mtdl9/vim-log-highlighting'
 
+Plug 'leafOfTree/vim-svelte-plugin'
+
 tnoremap <Esc> <C-\><C-n>
 
 " Vim plugin for live markdown preview
