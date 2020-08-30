@@ -145,11 +145,12 @@ nmap <leader>w :w<cr>
 
 
 " Run FZF with C-f
-map <C-F> :FZF<CR>
+map <C-F> :Files<CR>
 map <C-T> :BLines<CR>
 
 " Run Ripgrep with C-S
 nmap <C-S> :Rg<CR>
+command! -bang -nargs=* Rg call fzf#vim#grep("rg --column --line-number --no-heading --color=always --smart-case ".shellescape(<q-args>), 1, fzf#vim#with_preview({'options': '--delimiter : --nth 4..'}), <bang>0)
 
 " Set update time of gitgutter to 300ms
 set updatetime=300
