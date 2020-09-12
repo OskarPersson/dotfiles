@@ -114,3 +114,9 @@ abbr -a e nvim
 abbr -a g git
 abbr -a gc 'git checkout'
 abbr -a gst 'git status'
+
+# pyenv
+set -Ux PYENV_ROOT $HOME/.pyenv
+status --is-interactive; and source (pyenv init -|psub)
+#set -Ux fish_user_paths $PYENV_ROOT/bin $fish_user_paths
+#pyenv init - | source

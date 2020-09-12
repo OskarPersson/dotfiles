@@ -286,6 +286,8 @@ function! s:show_documentation()
 endfunction
 
 nmap <silent> gd <Plug>(coc-definition)
+" Search workspace symbols.
+nnoremap <silent><nowait> <space>s  :<C-u>CocList -I symbols<cr>
 
 
 
