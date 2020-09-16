@@ -148,6 +148,9 @@ nmap <leader>w :w<cr>
 map <C-F> :Files<CR>
 map <C-T> :BLines<CR>
 
+" Use bottom split for fzf
+let g:fzf_layout = { 'down': '40%' }
+
 " Run Ripgrep with C-S
 nmap <C-S> :Rg<CR>
 command! -bang -nargs=* Rg call fzf#vim#grep("rg --column --line-number --no-heading --color=always --smart-case ".shellescape(<q-args>), 1, fzf#vim#with_preview({'options': '--delimiter : --nth 4..'}), <bang>0)
