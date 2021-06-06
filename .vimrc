@@ -18,6 +18,8 @@ Plug 'dhruvasagar/vim-zoom'
 Plug 'w0rp/ale'
 
 " Syntax highlighting and indentation
+" Disable csv
+let g:polyglot_disabled = ['csv']
 Plug 'sheerun/vim-polyglot'
 
 " Editorconfig
@@ -270,11 +272,6 @@ let g:gitgutter_sign_modified_removed='◢'
 
 " Enable the list of buffers
 let g:airline#extensions#tabline#enabled = 1
-
-" Polyglot
-
-" Disable csv
-let g:polyglot_disabled = ['csv']
 
 " COC
 
