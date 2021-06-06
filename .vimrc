@@ -164,6 +164,9 @@ set updatetime=300
 " Set .tsx and .jsx filetypes as typescript.jsx
 " autocmd BufNewFile,BufRead *.tsx,*.jsx set filetype=typescript.jsx
 
+" Enable typescript syntax in svelte
+let g:vim_svelte_plugin_use_typescript = 1
+
 """ ALE
 " Wait 500ms after text is changed before linting
 let g:ale_lint_delay = 500
@@ -184,16 +187,18 @@ let g:ale_linters_ignore = {'typescript': ['tslint']}
 
 " Linters
 let g:ale_linters = {
-\   'javascript': ['eslint'],
-\   'typescript': ['tsserver'],
+\   'javascript': ['eslint', 'prettier'],
+\   'svelte': ['eslint', 'prettier'],
+\   'typescript': ['eslint', 'tsserver', 'prettier'],
 \   'python': ['flake8', 'pylint'],
 \}
 
 " Fixers
 let g:ale_fixers = {
 \   '*': ['remove_trailing_lines'],
-\   'javascript': ['eslint', 'prettier'],
-\   'typescript': ['prettier', 'tslint'],
+\   'javascript': ['prettier'],
+\   'svelte': ['prettier'],
+\   'typescript': ['prettier'],
 \   'python': ['autopep8', 'black'],
 \}
 
