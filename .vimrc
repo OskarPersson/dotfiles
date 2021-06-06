@@ -28,6 +28,7 @@ Plug 'editorconfig/editorconfig-vim'
 " Git
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-rhubarb'
+Plug 'shumphrey/fugitive-gitlab.vim'
 
 " Tagbar
 Plug 'majutsushi/tagbar'
