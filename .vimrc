@@ -202,6 +202,8 @@ let g:ale_fixers = {
 \   'python': ['autopep8', 'black'],
 \}
 
+let g:ale_fix_on_save = 1
+
 function! LinterStatus() abort
     let l:counts = ale#statusline#Count(bufnr(''))
 
