@@ -17,6 +17,9 @@ Plug 'dhruvasagar/vim-zoom'
 " Asynchronous Linting
 Plug 'w0rp/ale'
 
+" Multi-Cursor
+Plug 'mg979/vim-visual-multi'
+
 " Syntax highlighting and indentation
 " Disable csv
 let g:polyglot_disabled = ['csv']
