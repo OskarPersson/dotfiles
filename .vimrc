@@ -1,3 +1,8 @@
+" Map leader to ,
+let mapleader = ","
+
+
+
 " Specify a directory for plugins
 " - For Neovim: ~/.local/share/nvim/plugged
 " - Avoid using standard Vim directory names like 'plugin'
@@ -16,6 +21,8 @@ Plug 'dhruvasagar/vim-zoom'
 
 " Asynchronous Linting
 Plug 'w0rp/ale'
+
+let g:ale_disable_lsp = 1
 
 " Multi-Cursor
 Plug 'mg979/vim-visual-multi'
@@ -84,9 +91,6 @@ set wrapmargin=0
 
 " Do not automatically wrap text when typing
 set formatoptions-=t
-
-" Map leader to ,
-let mapleader = ","
 
 " Use system clipboard
 " https://stackoverflow.com/questions/30691466/what-is-difference-between-vims-clipboard-unnamed-and-unnamedplus-settings
@@ -186,7 +190,10 @@ let g:ale_echo_msg_format = '[%linter%] %s [%severity%]'
 let g:ale_javascript_prettier_use_local_config = 1
 
 " tslint isn't recommended, disable it
-let g:ale_linters_ignore = {'typescript': ['tslint']}
+let g:ale_linters_ignore = {
+\    'rust': ['cargo'],
+\    'typescript': ['tslint']
+\}
 
 " Linters
 let g:ale_linters = {
@@ -206,6 +213,12 @@ let g:ale_fixers = {
 \}
 
 let g:ale_fix_on_save = 1
+
+" Error/warning list
+let g:ale_set_loclist = 0
+let g:ale_set_quickfix = 1
+let g:ale_open_list = 1
+let g:ale_keep_list_window_open = 1
 
 function! LinterStatus() abort
     let l:counts = ale#statusline#Count(bufnr(''))
@@ -298,6 +311,8 @@ function! s:show_documentation()
 endfunction
 
 nmap <silent> gd <Plug>(coc-definition)
+" Symbol renaming.
+nmap <leader>rn <Plug>(coc-rename)
 " Search workspace symbols.
 nnoremap <silent><nowait> <space>s  :<C-u>CocList -I symbols<cr>
 
