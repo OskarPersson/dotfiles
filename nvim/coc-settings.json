@@ -1,0 +1,7 @@
+{
+    "codeLens.enable": true,
+    "prettier.statusItemText": "",
+    "rust-analyzer.diagnostics.disabled": ["unresolved-proc-macro"],
+    "rust-analyzer.checkOnSave.command": "clippy",
+    "svelte.enable-ts-plugin": true
+}
