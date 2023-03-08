@@ -14,7 +14,7 @@ Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
 
 " Install gruvbox color scheme:
-Plug 'alfunx/gruvbox'
+Plug 'ellisonleao/gruvbox.nvim'
 
 " tmux style zoom
 Plug 'dhruvasagar/vim-zoom'
@@ -179,65 +179,6 @@ set updatetime=300
 " Enable typescript syntax in svelte
 let g:vim_svelte_plugin_use_typescript = 1
 
-""" ALE
-" Wait 500ms after text is changed before linting
-"let g:ale_lint_delay = 500
-
-" Enable completion where available.
-"let g:ale_completion_enabled = 1
-
-" Message format
-"let g:ale_echo_msg_error_str = 'E'
-"let g:ale_echo_msg_warning_str = 'W'
-"let g:ale_echo_msg_format = '[%linter%] %s [%severity%]'
-
-
-"let g:ale_javascript_prettier_use_local_config = 1
-
-" tslint isn't recommended, disable it
-"let g:ale_linters_ignore = {
-"\    'rust': ['cargo'],
-"\    'typescript': ['tslint']
-"\}
-
-" Linters
-"let g:ale_linters = {
-"\   'javascript': ['eslint', 'prettier'],
-"\   'svelte': ['eslint', 'prettier'],
-"\   'typescript': ['eslint', 'tsserver', 'prettier'],
-"\   'python': ['flake8', 'pylint'],
-"\}
-
-" Fixers
-"let g:ale_fixers = {
-"\   '*': ['remove_trailing_lines'],
-"\   'javascript': ['prettier'],
-"\   'svelte': ['prettier'],
-"\   'typescript': ['prettier'],
-"\   'python': ['autopep8', 'black'],
-"\}
-
-"let g:ale_fix_on_save = 1
-
-" Error/warning list
-"let g:ale_set_loclist = 0
-"let g:ale_set_quickfix = 1
-"let g:ale_open_list = 1
-"let g:ale_keep_list_window_open = 1
-
-"function! LinterStatus() abort
-"    let l:counts = ale#statusline#Count(bufnr(''))
-"
-"    let l:all_errors = l:counts.error + l:counts.style_error
-"    let l:all_non_errors = l:counts.total - l:all_errors
-"
-"    return l:counts.total == 0 ? '' : printf(
-"    \   '%dW %dE',
-"    \   all_non_errors,
-"    \   all_errors
-"    \)
-"endfunction
-
 " Rust
 let g:rustfmt_autosave = 1
 let g:rustfmt_emit_files = 1
@@ -254,7 +195,7 @@ function! StatusLine(current, width)
   endif
   let l:s .= ' %f%h%w%m%r '
   if a:current
-    let l:s .= crystalline#right_sep('', 'Fill') . ' %{fugitive#head()}'
+    let l:s .= crystalline#right_sep('', 'Fill') . ' %{FugitiveHead()}'
   endif
 
   let l:s .= ' %{coc#status()}%{get(b:,"coc_current_function","")}'
@@ -284,7 +225,7 @@ let g:crystalline_statusline_fn = 'StatusLine'
 let g:crystalline_tabline_fn = 'TabLine'
 let g:crystalline_theme = 'gruvbox'
 
-set showtabline=2
+set showtabline=0
 set guioptions-=e
 set laststatus=2
 
@@ -313,6 +254,27 @@ function! s:show_documentation()
   else
     call CocAction('doHover')
   endif
+endfunction
+
+" Use tab for trigger completion with characters ahead and navigate
+" NOTE: There's always complete item selected by default, you may want to enable
+" no select by `"suggest.noselect": true` in your configuration file
+" NOTE: Use command ':verbose imap <tab>' to make sure tab is not mapped by
+" other plugin before putting this into your config
+inoremap <silent><expr> <TAB>
+      \ coc#pum#visible() ? coc#pum#next(1) :
+      \ CheckBackspace() ? "\<Tab>" :
+      \ coc#refresh()
+inoremap <expr><S-TAB> coc#pum#visible() ? coc#pum#prev(1) : "\<C-h>"
+
+" Make <CR> to accept selected completion item or notify coc.nvim to format
+" <C-g>u breaks current undo, please make your own choice
+inoremap <silent><expr> <CR> coc#pum#visible() ? coc#pum#confirm()
+                              \: "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
+
+function! CheckBackspace() abort
+  let col = col('.') - 1
+  return !col || getline('.')[col - 1]  =~# '\s'
 endfunction
 
 nmap <silent> ga <Plug>(coc-codeaction-cursor)
