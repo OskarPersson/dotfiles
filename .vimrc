@@ -246,6 +246,17 @@ let g:airline#extensions#tabline#enabled = 1
 
 " COC
 
+let g:coc_global_extensions = [
+      \'coc-prettier',
+      \'coc-eslint',
+      \'coc-tsserver',
+      \'coc-go',
+      \'coc-svelte',
+      \'coc-rust-analyzer',
+      \'coc-pyright',
+      \'coc-json',
+      \]
+
 nnoremap <silent> K :call <SID>show_documentation()<CR>
 
 function! s:show_documentation()
